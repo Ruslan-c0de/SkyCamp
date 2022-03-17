@@ -17,7 +17,8 @@ order by numberOfOrders desc limit 3
 
 
 -- 3. Знайти найдорожче замовлення
-SELECT Customers.CustomerName, SUM((Products.Price * OrderDetails.Quantity)), OrderDetails.OrderID 
+SELECT Customers.CustomerName, SUM((Products.Price * OrderDetails.Quantity)), OrderDetails.OrderID, Orders.CustomerID, 
+Orders.EmployeeID, Orders.OrderDate, Orders.ShipperID
 FROM Customers 
 INNER JOIN Orders ON Orders.CustomerID = Customers.CustomerID
 INNER JOIN OrderDetails ON OrderDetails.OrderID = Orders.OrderID
